@@ -2,18 +2,26 @@
 pragma solidity ^0.8.0;
 
 contract HotelBooking {
-    address public hotelWallet;
-    uint public roomPrice = 0.01 ether;
 
-    mapping(uint => address) public bookings;
+    address public hotelWallet;
+    address public guestWallet;
+
+    uint public roomPrice = 0.01 ether;
+    uint public roomsAvailable = 10;
+    uint public totalBookings = 0;
 
     constructor() {
         hotelWallet = msg.sender;
     }
 
-    function bookRoom(uint date) public {
-        require(bookings[date] == address(0), "Room already booked");
-
-        bookings[date] = msg.sender;
+    function bookRoom() public {
+        roomsAvailable -= 1;
+        totalBookings += 1;
+        guestWallet = msg.sender;
     }
+
+    function getBookings() public view returns (uint) {
+        return totalBookings;
+    }
+
 }
