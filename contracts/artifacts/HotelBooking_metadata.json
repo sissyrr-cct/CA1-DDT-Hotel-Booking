@@ -150,11 +150,11 @@
 	},
 	"sources": {
 		"HotelBooking.sol": {
-			"keccak256": "0x3ebf43425d86fa397fc3e2d7410393965094b943a9c3682d1fd8692037743a19",
+			"keccak256": "0x1af7888fe06cd58fdc2d5cb2c1b3954cff0ea11aaabf23676cf2030ce7458e2f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0bde06a86e70767342e2c693feffd8990358bd73b993d744142540aee5eb1d33",
-				"dweb:/ipfs/QmcyQ7zPzLiy1A85uXmUsnn2uWwWkEGrj5AoYtSmMdJZ9y"
+				"bzz-raw://eb0c66b02532485a318e0039fd60cd98642738d7d2bde3fdba558578144ea92c",
+				"dweb:/ipfs/QmdZriJopCim2QGrW5sSpLc9CuH2zqEJqeVkQf7mpHQwQB"
 			]
 		}
 	},

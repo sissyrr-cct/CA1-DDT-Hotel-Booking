@@ -15,6 +15,9 @@ contract HotelBooking {
     }
 
     function bookRoom() public payable {
+        require(msg.value == roomPrice, "Payment incorrect");
+        require(roomsAvailable > 0, "No rooms available");
+
         roomsAvailable -= 1;
         totalBookings += 1;
         guestWallet = msg.sender;
