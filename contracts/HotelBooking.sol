@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract HotelBooking {
-    address public hotelWallet;
+    address payable public hotelWallet;
     address public guestWallet;
 
     uint public roomPrice = 0.01 ether;
@@ -11,7 +11,7 @@ contract HotelBooking {
     uint public lastPayment;
 
     constructor() {
-        hotelWallet = msg.sender;
+        hotelWallet = payable(msg.sender);
     }
 
     function bookRoom() public payable {
@@ -22,6 +22,9 @@ contract HotelBooking {
         totalBookings += 1;
         guestWallet = msg.sender;
         lastPayment = msg.value;
+
+        (bool success, ) = hotelWallet.call{value: msg.value}("");
+        require(success, "Payment failed");
     }
 
     function getBookings() public view returns (uint) {

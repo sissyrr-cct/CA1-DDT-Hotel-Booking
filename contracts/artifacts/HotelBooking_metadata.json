@@ -61,7 +61,7 @@
 				"name": "hotelWallet",
 				"outputs": [
 					{
-						"internalType": "address",
+						"internalType": "address payable",
 						"name": "",
 						"type": "address"
 					}
@@ -150,11 +150,11 @@
 	},
 	"sources": {
 		"HotelBooking.sol": {
-			"keccak256": "0x1af7888fe06cd58fdc2d5cb2c1b3954cff0ea11aaabf23676cf2030ce7458e2f",
+			"keccak256": "0xba23dab6329a793d5803b8984dcc4c21150b8f2a0ab90751a19b8d5e62b82b50",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://eb0c66b02532485a318e0039fd60cd98642738d7d2bde3fdba558578144ea92c",
-				"dweb:/ipfs/QmdZriJopCim2QGrW5sSpLc9CuH2zqEJqeVkQf7mpHQwQB"
+				"bzz-raw://0ea6e15d9c04e6e653d9cb7a6dabe20634fae9980d785972f1d85c6e9c4906f6",
+				"dweb:/ipfs/QmcTWF7NoWAqAauQ9NhZevSharvsBGZUasydC18AZDjC7h"
 			]
 		}
 	},
