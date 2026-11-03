@@ -1,4 +1,3 @@
-
 from web3 import Web3
 import json
 
@@ -20,12 +19,32 @@ if ganache.is_connected():
     )
 
     # Wallet addresses
-    print("Hotel wallet:", contract.functions.hotelWallet().call())
-    print("Guest wallet:", contract.functions.guestWallet().call())
+    hotelWallet = contract.functions.hotelWallet().call()
+    print("Hotel wallet:", hotelWallet)
+    print("Last guest wallet:", contract.functions.guestWallet().call())
 
     # Hotel information
     print("Rooms available:", contract.functions.roomsAvailable().call())
     print("Total bookings:", contract.functions.totalBookings().call())
+    
+    # Selecting account and price
+    guestAccount = ganache.eth.accounts[1]
+    roomPrice = contract.functions.roomPrice().call()
+    print("\nGuest:", guestAccount)
 
+    # Book and send payment
+    transaction = contract.functions.bookRoom().transact({
+        "from": guestAccount,
+        "value": roomPrice
+    })
+
+    receipt = ganache.eth.wait_for_transaction_receipt(transaction)
+
+    if receipt.status == 1:
+        print("Booking successful!")
+        print("Rooms available:", contract.functions.roomsAvailable().call())
+        print("Total bookings:", contract.functions.totalBookings().call())
+    else:
+        print("Booking failed.")
 else:
     print("Connection failed. Check Ganache.")

@@ -137,7 +137,7 @@
 		"compilationTarget": {
 			"HotelBooking.sol": "HotelBooking"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "osaka",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
