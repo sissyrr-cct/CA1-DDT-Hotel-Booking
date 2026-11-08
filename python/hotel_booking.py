@@ -20,20 +20,19 @@ if ganache.is_connected():
 
     # Wallet addresses
     hotelWallet = contract.functions.hotelWallet().call()
-    print("Hotel wallet:", hotelWallet)
-    print("Last guest wallet:", contract.functions.guestWallet().call())
-
-    # Hotel information
-    print("Rooms available:", contract.functions.roomsAvailable().call())
-    print("Total bookings:", contract.functions.totalBookings().call())
-    
-    # Selecting account and price
     guestAccount = ganache.eth.accounts[1]
-    roomPrice = contract.functions.roomPrice().call()
-    print("\nGuest:", guestAccount)
 
-    # Book and send payment
-    transaction = contract.functions.bookRoom().transact({
+    print("Hotel wallet:", hotelWallet)
+    print("Guest wallet:", guestAccount)
+    
+    # booking date
+    date = int(input("Enter booking date (YYYYMMDD): "))
+    
+    # get price
+    roomPrice = contract.functions.roomPrice().call()
+
+    # book and send payment
+    transaction = contract.functions.bookRoom(date).transact({
         "from": guestAccount,
         "value": roomPrice
     })
@@ -41,9 +40,10 @@ if ganache.is_connected():
     receipt = ganache.eth.wait_for_transaction_receipt(transaction)
 
     if receipt.status == 1:
-        print("Booking successful!")
-        print("Rooms available:", contract.functions.roomsAvailable().call())
+        print("\nBooking successful!")
+        print("Rooms available:", contract.functions.getAvailableRooms(date).call())
         print("Total bookings:", contract.functions.totalBookings().call())
+        print("Transaction hash:", transaction.hex())
     else:
         print("Booking failed.")
 else:

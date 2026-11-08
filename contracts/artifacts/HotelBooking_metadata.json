@@ -11,10 +11,79 @@
 				"type": "constructor"
 			},
 			{
-				"inputs": [],
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "guest",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "date",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "RoomBooked",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "date",
+						"type": "uint256"
+					}
+				],
 				"name": "bookRoom",
 				"outputs": [],
 				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "bookingsPerDate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "date",
+						"type": "uint256"
+					}
+				],
+				"name": "getAvailableRooms",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -97,7 +166,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "roomsAvailable",
+				"name": "totalBookings",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -110,7 +179,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "totalBookings",
+				"name": "totalRooms",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -137,7 +206,7 @@
 		"compilationTarget": {
 			"HotelBooking.sol": "HotelBooking"
 		},
-		"evmVersion": "osaka",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -150,11 +219,11 @@
 	},
 	"sources": {
 		"HotelBooking.sol": {
-			"keccak256": "0xba23dab6329a793d5803b8984dcc4c21150b8f2a0ab90751a19b8d5e62b82b50",
+			"keccak256": "0xdd5dd30b747a3e8c5749a05ce10d414fb74edb386b8146c95478843f7054a504",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0ea6e15d9c04e6e653d9cb7a6dabe20634fae9980d785972f1d85c6e9c4906f6",
-				"dweb:/ipfs/QmcTWF7NoWAqAauQ9NhZevSharvsBGZUasydC18AZDjC7h"
+				"bzz-raw://806288e13e41a21704f0f5824e099f87dc45ac0d601157c039a33855fff8bcdb",
+				"dweb:/ipfs/QmdFAgRWPPBucSiHRbL8dg21TiZoY46tbYKEbtCZM5nswR"
 			]
 		}
 	},
